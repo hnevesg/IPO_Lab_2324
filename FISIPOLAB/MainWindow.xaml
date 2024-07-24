@@ -1,0 +1,900 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FISIPOLAB_"
+        xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="FISIPOLAB_.MainWindow"
+        mc:Ignorable="d"
+        Title="FISIPOLAB" Height="666" WindowStartupLocation="CenterScreen" Width="1200" Background="LightGray" ResizeMode="CanMinimize">
+    <Window.Resources>
+        <LinearGradientBrush x:Key="ButtonBackground1" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF0065C6" Offset="1"/>
+            <GradientStop Color="#FF00BEFF" Offset="0"/>
+            <GradientStop Color="#FF0D94FF" Offset="0.732"/>
+        </LinearGradientBrush>
+    </Window.Resources>
+
+    <Grid x:Name="gridMain">
+        <Grid.DataContext>
+            <local:MainConfiguration/>
+        </Grid.DataContext>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="91*"/>
+            <RowDefinition Height="470*"/>
+            <RowDefinition Height="23*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="22*"/>
+            <ColumnDefinition Width="168*"/>
+            <ColumnDefinition Width="692*"/>
+            <ColumnDefinition Width="169*"/>
+
+            <ColumnDefinition Width="149*"/>
+        </Grid.ColumnDefinitions>
+        <Grid x:Name="gridBg" Grid.ColumnSpan="5" HorizontalAlignment="Left" Height="646" Grid.RowSpan="3" VerticalAlignment="Top" Width="1205">
+            <Image x:Name="imgBg" Margin="2,-1,5,1" Source="{Binding urlFondo}"/>
+        </Grid>
+        <Grid x:Name="gridMainMenu" Grid.ColumnSpan="5" Grid.RowSpan="3" d:IsHidden="True">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100*"/>
+                <RowDefinition Height="110*"/>
+                <RowDefinition Height="69*"/>
+                <RowDefinition Height="275*"/>
+                <RowDefinition Height="92*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="187*"/>
+                <ColumnDefinition Width="864*"/>
+                <ColumnDefinition Width="149*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Margin="10,10,0,23" Grid.Column="1" Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Left" Width="642">
+                <Image Height="55" Width="253" Source="/img/arrow.png" Stretch="Fill"/>
+                <Label x:Name="lblNavegar" Content="¡Empieza a navegar!" HorizontalContentAlignment="Center" Height="53" Width="384" FontSize="34" FontFamily="Georgia Pro" Foreground="{Binding ColorLetra}" FontWeight="Bold" HorizontalAlignment="Center"/>
+            </StackPanel>
+            <Label x:Name="lblBienvenida" HorizontalContentAlignment="Center" FontSize="34" FontFamily="Georgia Pro" Grid.Column="1" Grid.Row="2" Margin="92,2,0,0" Width="712" Foreground="{Binding ColorLetra}" Content="" VerticalAlignment="Top" HorizontalAlignment="Left" Height="65"/>
+            <Image x:Name="imgUsuarioMini_Copiar2" 
+                Margin="255,100,224,0" Grid.Column="1" Source="/img/user_profile_picture.png" Grid.RowSpan="2"/>
+            <GroupBox Grid.Row="3"  Grid.Column="1" Height="259" Header="Sobre Ti" Margin="67,0,35,0" VerticalAlignment="Center" FontWeight="Bold" Foreground="{Binding ColorLetra}" Background="{Binding ColorPanel}">
+                <StackPanel x:Name="UserStackPanel" Margin="0,0,-2,0">
+                    <Label x:Name="lblNombreUsuario" Content="Nombre: " Margin="10,0,-2,0" Height="36" FontWeight="Normal" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                    <Label x:Name="lblApellidosUsuario" Content="Apellidos: " Margin="10,0,-2,0" Height="37" FontWeight="Normal" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                    <Label x:Name="lblDNIUsuario" Content="DNI: " Margin="10,0,-2,0" Height="38" FontWeight="Normal" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                    <Label x:Name="lblFechaNacimientoUsuario" Content="Fecha de Nacimiento: " Margin="10,0,-2,0" Height="35" FontWeight="Normal" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                    <Label x:Name="lblDireccionUsuario" Content="Dirección: " Margin="10,0,-2,0" Height="37" FontWeight="Normal" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                    <Label x:Name="lblEmailUsuario" Content="E-mail: " Margin="10,0,-2,0" Height="35" FontWeight="Normal" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+
+                </StackPanel>
+
+            </GroupBox>
+        </Grid>
+        <Grid x:Name="gridPlanificacionCalendario" Grid.ColumnSpan="5" Grid.RowSpan="3" d:IsHidden="True">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="101*"/>
+                <RowDefinition Height="55*"/>
+                <RowDefinition Height="464*"/>
+                <RowDefinition Height="26*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="187*"/>
+                <ColumnDefinition Width="481*"/>
+                <ColumnDefinition Width="383*"/>
+                <ColumnDefinition Width="149*"/>
+            </Grid.ColumnDefinitions>
+            <Calendar x:Name="calendarCitas" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" BorderBrush="#FF0786FF" Background="White" RenderTransformOrigin="0.5,0.5" Height="175" Width="184" Style="{Binding FontStyle, ElementName=calendarCitas}" FontFamily="Georgia Pro" Margin="97,92,0,0" SelectedDatesChanged="calendarCitas_SelectedDatesChanged">
+                <Calendar.Effect>
+                    <DropShadowEffect/>
+                </Calendar.Effect>
+                <Calendar.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Calendar.RenderTransform>
+            </Calendar>
+            <Button x:Name="btnCancelarCita" Grid.Column="1" HorizontalAlignment="Left" Margin="44,5,0,0" Grid.Row="1" VerticalAlignment="Top" Height="37" Width="145" FontFamily="Georgia Pro" Click="btnCancelarCita_Click" Cursor="Hand" ToolTip="Cancela la cita seleccionada" Background="{Binding ColorBotonNoPresionado}">
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/img/papelera.png" Margin="0,0,5,0" Height="24" Width="25"/>
+                    <Label Content="Cancelar cita" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}" Height="34" Width="113" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="BtnNuevaCitaMenu" Grid.Column="1" HorizontalAlignment="Left" Margin="199,5,0,0" Grid.Row="1" VerticalAlignment="Top" Height="37" Width="140" FontFamily="Georgia" Click="BtnNuevaCitaMenu_Click" Cursor="Hand" ToolTip="Añade una cita al calendario" Background="{Binding ColorBotonNoPresionado}">
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/img/reloj.png" Margin="0,0,5,0" Height="29" Width="29"/>
+                    <Label Content="Nueva cita" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}" Height="34" Width="93" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+                </StackPanel>
+            </Button>
+
+            <DataGrid x:Name="dgCitas"  Grid.Column="2" Margin="0,1,26,28" Grid.Row="1" Grid.RowSpan="2" FontFamily="Georgia Pro" AutoGenerateColumns="False" Background="{Binding ColorBotonNoPresionado}" FontSize="{Binding TamanioLetra}" IsReadOnly="True">
+                <DataGrid.Effect>
+                    <DropShadowEffect/>
+                </DataGrid.Effect>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Hora" Binding="{Binding hora}"/>
+                    <DataGridTextColumn Header="Paciente" Binding="{Binding paciente}"/>
+                    <DataGridTextColumn Header="Sanitario" Binding="{Binding sanitario}"/>
+                    <DataGridTextColumn Header="Duracion" Binding="{Binding duracion}"/>
+                </DataGrid.Columns>
+                <System:String>#ItemsSource="Usuario.cs"</System:String>
+            </DataGrid>
+        </Grid>
+        <Grid x:Name="gridPlanificacionNuevaCita" Grid.ColumnSpan="5" Grid.RowSpan="3" d:IsHidden="True">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="101*"/>
+                <RowDefinition Height="77*"/>
+                <RowDefinition Height="348*"/>
+                <RowDefinition Height="95*"/>
+                <RowDefinition Height="25*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="187*"/>
+                <ColumnDefinition Width="583*"/>
+                <ColumnDefinition Width="281*"/>
+                <ColumnDefinition Width="148*"/>
+            </Grid.ColumnDefinitions>
+            <GroupBox x:Name="gboxNuevaCita" Grid.Column="1" Header="Nueva Cita" Grid.Row="2" Grid.ColumnSpan="2" Margin="377,10,21,18" BorderBrush="{Binding ColorLetra}" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}" BorderThickness="2" Cursor="" FontWeight="Bold" Background="{Binding ColorPanel}"/>
+
+            <Calendar x:Name="calNuevaCita" Grid.Column="1" Grid.Row="2" BorderBrush="#FF0786FF" Background="White" Foreground="{x:Null}" RenderTransformOrigin="0.5,0.5" Style="{Binding FontStyle, ElementName=calendarCitas}" FontFamily="Georgia Pro" Margin="99,71,0,103" HorizontalAlignment="Left" Width="180" SelectedDatesChanged="calNuevaCita_SelectedDatesChanged">
+                <Calendar.Effect>
+                    <DropShadowEffect/>
+                </Calendar.Effect>
+                <Calendar.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Calendar.RenderTransform>
+            </Calendar>
+            <Label x:Name="lblFecha" Grid.Column="1" Content="Fecha de la cita:" HorizontalContentAlignment="Right" Margin="0,66,281,0" Grid.Row="2" FontFamily="Georgia Pro" Height="29" VerticalAlignment="Top" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}" Grid.ColumnSpan="2" HorizontalAlignment="Right" Width="155"/>
+            <Label x:Name="lblHora" Grid.Column="1" Content="Hora de la cita:" HorizontalContentAlignment="Right" Margin="0,100,281,0" Grid.Row="2" FontFamily="Georgia Pro" Height="29" VerticalAlignment="Top" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}" Grid.ColumnSpan="2" HorizontalAlignment="Right" Width="155"/>
+            <Label x:Name="lblPaciente" Grid.Column="1" Content="Paciente atendido:" HorizontalAlignment="Right" HorizontalContentAlignment="Right" Margin="0,138,281,0" Grid.Row="2" Width="171" FontFamily="Georgia Pro" Height="29" VerticalAlignment="Top" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}" Grid.ColumnSpan="2"/>
+            <Label x:Name="lblSanitario" Grid.Column="1" Content="Sanitario encargado:" HorizontalAlignment="Right" HorizontalContentAlignment="Right" Margin="0,173,281,0" Grid.Row="2" Width="180" FontFamily="Georgia Pro" Height="29" VerticalAlignment="Top" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}" Grid.ColumnSpan="2"/>
+            <Label x:Name="lblDuracion" Grid.Column="1" Content="Duración estimada:" HorizontalAlignment="Right" HorizontalContentAlignment="Right" Margin="0,210,281,0" Grid.Row="2" Width="180" FontFamily="Georgia Pro" Height="29" VerticalAlignment="Top" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="txtbFecha" ToolTip="Introduce la fecha o haz click en un día del calendario" Grid.Column="2" Margin="0,66,178,0" Grid.Row="2" TextWrapping="Wrap" Text=" / /" FontFamily="Georgia Pro" Height="29" VerticalAlignment="Top" HorizontalContentAlignment="Center" Cursor="IBeam" Foreground="{Binding ColorLetra}" Background="{Binding ColorBotonNoPresionado}" FontSize="{Binding TamanioLetra}"/>
+            <TextBox x:Name="txtbHora" ToolTip="Introduce la hora de la cita" Grid.Column="2" Margin="0,100,220,0" Grid.Row="2" TextWrapping="Wrap" Text=" : " FontFamily="Georgia Pro" Height="29" VerticalAlignment="Top" HorizontalContentAlignment="Center" Cursor="IBeam" Foreground="{Binding ColorLetra}" Background="{Binding ColorBotonNoPresionado}" FontSize="{Binding TamanioLetra}"/>
+            <TextBox x:Name="txtbPaciente"  ToolTip="Introduce el email del paciente" Grid.Column="2" Margin="0,136,75,0" Grid.Row="2" TextWrapping="Wrap" Text="example@mail.com" FontFamily="Georgia Pro" Height="29" VerticalAlignment="Top" HorizontalContentAlignment="Center" TextAlignment="Justify" Cursor="IBeam" Foreground="{Binding ColorLetra}" Background="{Binding ColorBotonNoPresionado}" FontSize="{Binding TamanioLetra}" GotFocus="txtbPaciente_GotFocus" LostFocus="txtbPaciente_LostFocus"/>
+            <TextBox x:Name="txtbSanitario" ToolTip="Introduce el email del sanitario" Grid.Column="2" Margin="0,173,75,0" Grid.Row="2" TextWrapping="Wrap" Text="example@mail.com" FontFamily="Georgia Pro" Height="29" VerticalAlignment="Top" HorizontalContentAlignment="Center" TextAlignment="Justify" Cursor="IBeam" Foreground="{Binding ColorLetra}" Background="{Binding ColorBotonNoPresionado}" FontSize="{Binding TamanioLetra}" LostFocus="txtbSanitario_LostFocus" GotFocus="txtbSanitario_GotFocus"/>
+            <TextBox x:Name="txtbDuracion" ToolTip="Introduce la duración de la sesión" Grid.Column="2" Margin="0,210,0,0" Grid.Row="2" TextWrapping="Wrap" FontFamily="Georgia Pro" HorizontalAlignment="Left" Width="53" Height="29" HorizontalContentAlignment="Center" VerticalAlignment="Top" Cursor="IBeam" Foreground="{Binding ColorLetra}" Background="{Binding ColorBotonNoPresionado}" FontSize="{Binding TamanioLetra}"/>
+            <Label x:Name="lblMinutos" Grid.Column="2" Content="Minutos" HorizontalAlignment="Left" Margin="54,210,0,0" Grid.Row="2" Width="93" FontFamily="Georgia Pro" Height="29" VerticalAlignment="Top" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+            <Button Grid.Column="1" x:Name="btnCrearCita" HorizontalAlignment="Left" Margin="548,252,0,0" Grid.Row="2" VerticalAlignment="Top" Height="50" Width="125" Click="btnCrearCita_Click" Grid.ColumnSpan="2" Cursor="Hand" Background="{Binding ColorBotonNoPresionado}" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}">
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/img/menu/mas.png" Margin="0,0,5,0" Height="21" Width="18"/>
+                    <TextBlock Text="Crear cita" VerticalAlignment="Center" Foreground="{Binding ColorLetra}"/>
+                </StackPanel>
+            </Button>
+
+        </Grid>
+        <Grid x:Name="gridPacientesLista" Grid.ColumnSpan="5" Grid.RowSpan="3" d:IsHidden="True">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="101*"/>
+                <RowDefinition Height="141*"/>
+                <RowDefinition Height="276*"/>
+                <RowDefinition Height="105*"/>
+                <RowDefinition Height="23*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="187*"/>
+                <ColumnDefinition Width="864*"/>
+                <ColumnDefinition Width="149*"/>
+            </Grid.ColumnDefinitions>
+            <TabControl x:Name="TabControlPac" TabStripPlacement="Right" Grid.Column="1" Grid.Row="2" Margin="263,1,0,0">
+                <TabItem x:Name="TabDatosPersonalesPac" Header="Datos Personales" Margin="0,-2,-2,-18" FontSize="{Binding TamanioLetra}" Background="{Binding ColorBotonPresionado}" FontFamily="Georgia Pro">
+                    <Grid x:Name="grDatosIndividualesPac" Background="{Binding ColorBotonNoPresionado}" Margin="0,0,0,1">
+                        <Canvas VerticalAlignment="Top" Height="256" Margin="-2,12,0,0" HorizontalAlignment="Left" Width="466">
+                            <StackPanel Height="275" Width="394" Canvas.Top="2" Canvas.Left="11" HorizontalAlignment="Center" VerticalAlignment="Top">
+                                <StackPanel Orientation="Horizontal" Margin="48,0,0,0" HorizontalAlignment="Right" Width="306">
+                                    <Label x:Name="lblDNIIndPr1" HorizontalContentAlignment="Right" Content="DNI" Width="92" Height="31" Margin="0,0,0,0" FontFamily="Georgia Pro" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                                    <TextBox x:Name="txtDNIIndPr1" HorizontalAlignment="Center" Text="{Binding PacienteSeleccionado.DNI}"  Width="98" Height="24" Margin="5,0,0,6" FontFamily="Georgia Pro" IsEnabled="False" Background="{Binding ColorBotonPresionado}" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}" VerticalAlignment="Bottom"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="48,0,0,0" Width="306">
+                                    <Label x:Name="lblTlfIndPr1" HorizontalContentAlignment="Right" Content="Teléfono" Width="92" Height="30" Margin="0,0,0,0" FontFamily="Georgia Pro" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                                    <TextBox x:Name="txtTlfIndPr1" HorizontalAlignment="Left" Text="{Binding PacienteSeleccionado.Telefono}" Width="98" Height="24" Margin="5,0,0,6" FontFamily="Georgia Pro" IsEnabled="False" Background="{Binding ColorBotonPresionado}" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Width="384" Height="32" HorizontalAlignment="Right" Margin="18,0,0,0">
+                                    <Label x:Name="lblFechaNacIndPr1" HorizontalContentAlignment="Right" Content="Fecha de Nacimiento" Width="176" Height="32" FontFamily="Georgia Pro"  Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                                    <TextBox x:Name="txtFechaNacIndPr1" Text="{Binding PacienteSeleccionado.FechaNacimiento}" Width="99" Height="24" FontFamily="Georgia Pro" IsEnabled="False" Background="{Binding ColorBotonPresionado}" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="48,0,0,0" HorizontalAlignment="Right" Width="301" Height="37">
+                                    <Label x:Name="lblDireccionIndPr1" HorizontalContentAlignment="Right" Content="Dirección" Width="92" Height="31" Margin="0,0,0,0" FontFamily="Georgia Pro" VerticalAlignment="Center" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                                    <TextBox x:Name="txtDireccionIndPr1" Width="208" Height="24" Text="{Binding PacienteSeleccionado.Direccion}" Cursor="" TextWrapping="Wrap" FontFamily="Georgia Pro" IsEnabled="False" Background="{Binding ColorBotonPresionado}" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Width="269" Height="32">
+                                    <Label x:Name="lblEmailIndPr1" HorizontalContentAlignment="Right" Content="Email" Width="55" Height="31" FontFamily="Georgia Pro" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                                    <TextBox x:Name="txtEmailIndPr1" Width="208" Height="24" Text="{Binding PacienteSeleccionado.Email}" Margin="5,0,0,6" FontFamily="Georgia Pro" IsEnabled="False" Background="{Binding ColorBotonPresionado}" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Width="268">
+                                    <Label x:Name="lblSexoIndPr1" HorizontalContentAlignment="Right" Content="Sexo" Width="55" Height="31" FontFamily="Georgia Pro" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                                    <TextBox x:Name="txtSexoIndPr1" Width="207" Height="24" Text="{Binding PacienteSeleccionado.Sexo}" Margin="5,0,0,6" FontFamily="Georgia Pro" IsEnabled="False" Background="{Binding ColorBotonPresionado}" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Width="421" HorizontalAlignment="Right" >
+                                    <Label x:Name="lblCirugiaPreviaInd" HorizontalContentAlignment="Right" Content="Cirugía previa" Width="206" Height="31" FontFamily="Georgia Pro" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                                    <CheckBox x:Name="checkCirugiaPreviaInd" Width="15" Height="15" Margin="5,0,0,6" FontFamily="Georgia Pro" IsEnabled="False"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Width="422" HorizontalAlignment="Right">
+                                    <Label x:Name="lblFumadorInd" HorizontalContentAlignment="Right" Content="Fumador" Width="207" Height="29" Margin="0,0,0,0" FontFamily="Georgia Pro" VerticalAlignment="Center" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                                    <CheckBox x:Name="checkFumadorInd" Width="15" Height="14" Margin="5,0,0,6" FontFamily="Georgia Pro" IsEnabled="False"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Canvas>
+                    </Grid>
+                </TabItem>
+                <TabItem x:Name="TabHistorialCitas" Header="Historial de citas" Margin="0,18,-2,-36" FontSize="{Binding TamanioLetra}" Background="{Binding ColorBotonPresionado}" FontFamily="Georgia Pro">
+                    <Grid x:Name="grHistorialCitasPac" Background="{Binding ColorBotonNoPresionado}">
+                        <DataGrid x:Name="dgrHistorialPac" Visibility="Hidden" Margin="0,0,1,0" MinRowHeight="20" Focusable="False" FontSize="{Binding TamanioLetra}" Background="{Binding ColorPanel}" IsReadOnly="True">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Fecha" Binding="{Binding fecha}" />
+                                <DataGridTextColumn Header="Hora" Binding="{Binding hora}" />
+                                <DataGridTextColumn Header="Profesional" Binding="{Binding sanitario}" />
+                                <DataGridTemplateColumn Header="Estado">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Rectangle Width="16" Height="16">
+                                                <Rectangle.Style>
+                                                    <Style TargetType="{x:Type Rectangle}">
+                                                        <Setter Property="Fill" Value="Transparent"/>
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding estado}" Value="Pendiente">
+                                                                <Setter Property="Fill" Value="Yellow"/>
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding estado}" Value="Cancelada">
+                                                                <Setter Property="Fill" Value="Red"/>
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding estado}" Value="Finalizada">
+                                                                <Setter Property="Fill" Value="Green"/>
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Rectangle.Style>
+                                            </Rectangle>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+
+                        <Label x:Name="LeyendaPacs" HorizontalAlignment="Center" Visibility="Hidden">
+                            <StackPanel Orientation="Horizontal" Margin="0,220,0,0">
+                                <Rectangle Width="16" Height="16" Fill="Red" Margin="0,0,4,0"/>
+                                <TextBlock Text="Cancelada" VerticalAlignment="Center" Margin="0,0,8,0" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+
+                                <Rectangle Width="16" Height="16" Fill="Green" Margin="0,0,4,0"/>
+                                <TextBlock Text="Finalizada" VerticalAlignment="Center" Margin="0,0,8,0" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+
+                                <Rectangle Width="16" Height="16" Fill="Yellow" Margin="0,0,4,0"/>
+                                <TextBlock Text="Pendiente" VerticalAlignment="Center" Margin="0,0,8,0" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+
+                            </StackPanel>
+                        </Label>
+                        <Label x:Name="lblSinCitas" Visibility="Hidden" Content="No hay citas para este paciente" Margin="0,100,0,0" HorizontalAlignment="Center"/>
+                    </Grid>
+                </TabItem>
+                <TabItem x:Name="TabInformes" Header="Informes Médicos" Margin="0,35,-2,-56" FontSize="{Binding TamanioLetra}" Background="{Binding ColorBotonPresionado}" FontFamily="Georgia Pro">
+                    <Grid x:Name="grInformes" Margin="0,0,1,0">
+                        <Label x:Name="lblSinInformes" Content="No constan informes para este paciente" Visibility="Hidden" Margin="0,100,0,0" HorizontalAlignment="Center" />
+                        <DataGrid x:Name="dgInformesPaciente" IsReadOnly="True" AutoGenerateColumns="False" Background="{Binding ColorBotonNoPresionado}" FontSize="{Binding TamanioLetra}">
+                            <DataGrid.Columns>
+                                <DataGridTemplateColumn Header="Detalles">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button x:Name="BtnVerInforme" ToolTip="Haz click para ver los detalles del informe." Click="BtnVerInforme_Click" Background="{Binding ColorBotonNoPresionado}" FontSize="{Binding TamanioLetra}" BorderBrush="White">
+                                            <Image Width="20" Height="20"
+                Source="{Binding detalles}"/>
+                                            </Button>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTextColumn Header="Fecha" Binding="{Binding fecha_informe}"/>
+                                <DataGridTextColumn Header="Dolencia" Binding="{Binding dolencia}"/>
+                                <DataGridTextColumn Header="Tratamiento" Binding="{Binding tratamiento}"/>
+                                <DataGridTextColumn Header="Prueba" Binding = "{Binding pruebas}" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+
+                </TabItem>
+            </TabControl>
+            <DataGrid x:Name="dgInfoPacientes" Grid.Column="1" Margin="21,2,601,0" Grid.Row="2"  AutoGenerateColumns="False" SelectionChanged="dgInfoPacientes_SelectionChanged" Background="{Binding ColorBotonNoPresionado}" FontSize="{Binding TamanioLetra}" FontFamily="Georgia Pro" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Nombre"  Width="80" Binding="{Binding Nombre}"/>
+                    <DataGridTextColumn Header="Apellidos" Width="80" Binding="{Binding Apellidos}"/>
+                    <DataGridTextColumn Header="DNI" Width="80" Binding="{Binding DNI}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button x:Name="btnFiltrarPac" Grid.Column="1" Margin="772,60,0,0" Grid.Row="1" ToolTip="Haz click para filtrar" Height="34" VerticalAlignment="Top" HorizontalAlignment="Left" Width="34" Cursor="Hand" Background="{Binding ColorBotonNoPresionado}">
+                <Image Source="/img/filtro.png" Height="26" Width="25"/>
+            </Button>
+            <GroupBox Header="" Margin="21,0,0,0" Grid.Column="1" Grid.Row="1" BorderBrush="{Binding ColorLetra}" Background="{Binding ColorPanel}" Height="46" VerticalAlignment="Center" HorizontalAlignment="Left" Width="712">
+                <StackPanel Margin="-6,-8,-2,-2" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal">
+                    <Button x:Name="btnBuscarPac" ToolTip="Haz click para buscar un paciente" Background="{Binding ColorBotonNoPresionado}" Height="28" Width="50" Margin="1,0,0,0" Click="btnBuscarPac_Click">
+                        <Image Source="/img/search.png" Height="28" Width="50"/>
+                    </Button>
+                    <TextBox x:Name="txtbBuscarPaciente" TextWrapping="Wrap" Text="Introduce el nombre, DNI, o email de un paciente..." Width="659" Height="29" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}" FontFamily="Georgia Pro" Background="{Binding ColorBotonPresionado}" GotFocus="txtbBuscarPaciente_GotFocus" LostFocus="txtbBuscarPaciente_LostFocus">
+                        <TextBox.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleY="1"/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </TextBox.RenderTransform>
+                    </TextBox>
+                </StackPanel>
+            </GroupBox>
+        </Grid>
+        <Grid x:Name="gridPacientesAgregar" Grid.ColumnSpan="5" Grid.RowSpan="3" d:IsHidden="True">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="101*"/>
+                <RowDefinition Height="272*"/>
+                <RowDefinition Height="247*"/>
+                <RowDefinition Height="26*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="19*"/>
+                <ColumnDefinition Width="16*"/>
+                <ColumnDefinition Width="70*"/>
+                <ColumnDefinition Width="15*"/>
+            </Grid.ColumnDefinitions>
+            <GroupBox x:Name="GrDatosPersonalesPac" Grid.Column="2" Header="Datos Personales" Margin="0,10,0,0" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}" BorderBrush="{Binding ColorLetra}" BorderThickness="2" FontFamily="Georgia Pro" Grid.Row="1" FontWeight="Bold" Background="{Binding ColorPanel}">
+                <Canvas VerticalAlignment="Top" Height="240" Margin="-2,0,0,0" HorizontalAlignment="Left" Width="692">
+                    <StackPanel HorizontalAlignment="Center" Height="220" VerticalAlignment="Top" Width="281" Canvas.Top="10">
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                            <Label x:Name="lblNombre" HorizontalContentAlignment="Right" Content="Nombre" Width="120" Height="29" Margin="0,0,0,0" FontFamily="Georgia Pro" FontWeight="Normal" HorizontalAlignment="Right" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                            <TextBox x:Name="txtNombre" Width="149" Height="29" Margin="5,0,0,6" FontFamily="Georgia Pro" Cursor="IBeam" Background="{Binding ColorBotonNoPresionado}" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}" FontWeight="Normal"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                            <Label x:Name="lblApellidos" HorizontalContentAlignment="Right" Content="Apellidos" Width="118" Height="29" Margin="0,0,0,0" FontFamily="Georgia Pro" FontWeight="Normal" HorizontalAlignment="Right" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                            <TextBox x:Name="txtApellido" Width="148" Height="29" Margin="5,0,0,6" FontFamily="Georgia Pro" Cursor="IBeam" Background="{Binding ColorBotonNoPresionado}" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}" FontWeight="Normal"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                            <Label x:Name="lblDNI" HorizontalContentAlignment="Right" Content="DNI" Width="116" Height="29" Margin="0,0,0,0" FontFamily="Georgia Pro" FontWeight="Normal" HorizontalAlignment="Right" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                            <TextBox x:Name="txtDNI" HorizontalAlignment="Left" Width="120" Height="29" Margin="5,0,0,6" FontFamily="Georgia Pro" Cursor="IBeam" Background="{Binding ColorBotonNoPresionado}" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}" FontWeight="Normal"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                            <Label x:Name="lblTlf" HorizontalContentAlignment="Right" Content="Teléfono" Width="118" Height="29" Margin="0,0,0,0" FontFamily="Georgia Pro" FontWeight="Normal" HorizontalAlignment="Right" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                            <TextBox x:Name="txtTlf" HorizontalAlignment="Left" Width="120" Height="29" Margin="5,0,0,6" FontFamily="Georgia Pro" Cursor="IBeam" Background="{Binding ColorBotonNoPresionado}" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}" FontWeight="Normal"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                            <Label x:Name="lblFechaNac" HorizontalContentAlignment="Right" Content="Fecha de &#xA;Nacimiento" Width="118" Height="48" FontFamily="Georgia Pro" FontWeight="Normal" HorizontalAlignment="Right" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                            <TextBox x:Name="txtFechaNac" ToolTip="Introduce la fecha en formato dd/mm/aaaa" HorizontalAlignment="Left" Width="120" Height="29" Margin="5,0,0,6" Text=" / / " FontFamily="Georgia Pro" Cursor="IBeam" Background="{Binding ColorBotonNoPresionado}" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}" FontWeight="Normal"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Center" Height="235" Canvas.Left="281" VerticalAlignment="Top" Width="317" Canvas.Top="10">
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                            <Label x:Name="lblDireccion" HorizontalContentAlignment="Right" Content="Dirección" Width="121" Height="29" Margin="0,0,0,0" FontFamily="Georgia Pro" FontWeight="Normal" HorizontalAlignment="Right" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                            <TextBox x:Name="txtDireccion" Width="170" Height="29" Margin="5,0,0,6" Cursor="IBeam" FontFamily="Georgia Pro" Background="{Binding ColorBotonNoPresionado}" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}" FontWeight="Normal"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                            <Label x:Name="lblEmail" HorizontalContentAlignment="Right" Content="Email" Width="121" Height="29" Margin="0,0,0,0" FontFamily="Georgia Pro" FontWeight="Normal" HorizontalAlignment="Right" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                            <TextBox x:Name="txtEmail" Width="167" Height="29" Margin="5,0,0,6" FontFamily="Georgia Pro" Cursor="IBeam" Background="{Binding ColorBotonNoPresionado}" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}" FontWeight="Normal"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                            <Label x:Name="lblSexo" HorizontalContentAlignment="Right" Content="Sexo" Width="121" Height="29" Margin="0,0,0,0" FontFamily="Georgia Pro" FontWeight="Normal" HorizontalAlignment="Right" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                            <ComboBox x:Name="cbSexo" Width="117" Height="29" Margin="5,0,0,6" FontFamily="Georgia Pro" Cursor="Hand" Background="{Binding ColorBotonNoPresionado}" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}" FontWeight="Normal">
+                                <ComboBoxItem Tag="Masculino" Content="Masculino"/>
+                                <ComboBoxItem Tag="Femenino" Content="Femenino"/>
+                            </ComboBox>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                            <Label x:Name="lblCirugiaPrevia" HorizontalContentAlignment="Right" Content="Cirugia previa" Width="121" Height="29" Margin="0,0,0,0" FontFamily="Georgia Pro" FontWeight="Normal" HorizontalAlignment="Right" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                            <CheckBox x:Name="checkCirugiaPrevia" Content=""  Margin="5,6,0,6" Width="16" Cursor="Hand"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label x:Name="lblFumador" HorizontalContentAlignment="Right" Content="Fumador" Width="121" Height="29" Margin="0,0,0,0" FontFamily="Georgia Pro" VerticalAlignment="Center" FontWeight="Normal" HorizontalAlignment="Right" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                            <CheckBox x:Name="checkFumador" Content=""  Margin="5,6,0,6" Width="16" HorizontalAlignment="Center" VerticalAlignment="Center" Cursor="Hand"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <Button x:Name="btnAñadirPaciente" Height="41" Width="179" ToolTip="Haz click para añadir un paciente" Click="btnAñadirPaciente_Click" Cursor="Hand" Background="{Binding ColorBotonNoPresionado}" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}" Canvas.Left="503" Canvas.Top="189">
+                        <StackPanel Orientation="Horizontal" Width="169">
+                            <Image Source="/img/menu/mas.png" Height="22" Width="22" Margin="0,0,0,0"/>
+                            <Label Content="Añadir paciente" HorizontalContentAlignment="Left" VerticalAlignment="Center" FontFamily="Georgia Pro" Margin="10,0,0,0" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}" FontWeight="Normal" Height="30" Width="138"/>
+                        </StackPanel>
+                    </Button>
+                </Canvas>
+            </GroupBox>
+            <GroupBox x:Name="GrInformes" Grid.Column="1" Header="Informes" Grid.Row="2" Margin="10,5,0,0" BorderBrush="{Binding ColorLetra}" BorderThickness="2" Grid.ColumnSpan="2" FontFamily="Georgia Pro" FontWeight="Bold" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}" Background="{Binding ColorPanel}">
+                <TextBox Margin="10,0,11,0" TextWrapping="Wrap" Height="155" FontFamily="Georgia Pro" Cursor="IBeam" FontWeight="Normal" Text="+ Nuevo informe" Background="{Binding ColorBotonNoPresionado}" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+            </GroupBox>
+            <Image x:Name="imgFotoPaciente" Grid.Column="1" HorizontalAlignment="Center" Height="109" Grid.Row="1" VerticalAlignment="Center" Width="100" OpacityMask="Black" Source="/img/menu_agregar_sin_foto.png"/>
+            <Label Grid.Column="1" Content="Foto de perfil" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Height="35" Margin="0,199,0,0" Grid.Row="1" VerticalAlignment="Top" Width="116" FontFamily="Georgia Pro" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+        </Grid>
+        <Grid x:Name="gridProfesionalesLista" Grid.ColumnSpan="5" Grid.RowSpan="3" d:IsHidden="True">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="101*"/>
+                <RowDefinition Height="141*"/>
+                <RowDefinition Height="276*"/>
+                <RowDefinition Height="105*"/>
+                <RowDefinition Height="23*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="187*"/>
+                <ColumnDefinition Width="864*"/>
+                <ColumnDefinition Width="149*"/>
+            </Grid.ColumnDefinitions>
+            <TabControl x:Name="TabControlProf" TabStripPlacement="Right" Grid.Column="1" Grid.Row="2" Margin="262,1,6,0">
+                <TabItem x:Name="TabDatosPersonalesProf" Header="Datos Personales" Margin="0,-2,-2,-18" FontFamily="Georgia Pro" Background="{Binding ColorBotonPresionado}" FontSize="{Binding TamanioLetra}">
+                    <Grid x:Name="grDatosIndivProf" Background="{Binding ColorBotonNoPresionado}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Canvas VerticalAlignment="Top" Height="257" Margin="-2,12,0,0" HorizontalAlignment="Left" Width="466">
+                            <StackPanel HorizontalAlignment="Left" Height="267" VerticalAlignment="Center" Width="415" Canvas.Top="2" Canvas.Left="-11">
+                                <StackPanel Orientation="Horizontal" Margin="48,0,0,0" HorizontalAlignment="Right" Width="306">
+                                    <Label x:Name="lblDNIIndPr" HorizontalContentAlignment="Right" Content="DNI" Width="92" Height="31" Margin="0,0,0,0" FontFamily="Georgia Pro" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                                    <TextBox x:Name="txtDNIIndPr" HorizontalAlignment="Center" Text="{Binding ProfesionalSeleccionado.DNI}"  Width="98" Height="24" Margin="5,0,0,6" FontFamily="Georgia Pro" IsEnabled="False" Background="{Binding ColorBotonPresionado}" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}" VerticalAlignment="Bottom"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="48,0,0,0" Width="306">
+                                    <Label x:Name="lblTlfIndPr" HorizontalContentAlignment="Right" Content="Teléfono" Width="92" Height="30" Margin="0,0,0,0" FontFamily="Georgia Pro" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                                    <TextBox x:Name="txtTlfIndPr" HorizontalAlignment="Left" Text="{Binding ProfesionalSeleccionado.Telefono}" Width="98" Height="24" Margin="5,0,0,6" FontFamily="Georgia Pro" IsEnabled="False" Background="{Binding ColorBotonPresionado}" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Width="385" Height="32" HorizontalAlignment="Right" Margin="18,0,0,0">
+                                    <Label x:Name="lblFechaNacIndPr" HorizontalContentAlignment="Right" Content="Fecha de Nacimiento" Width="176" Height="32" FontFamily="Georgia Pro" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                                    <TextBox x:Name="txtFechaNacIndPr" Text="{Binding ProfesionalSeleccionado.FechaNacimiento}" Width="99" Height="24" FontFamily="Georgia Pro" IsEnabled="False" Background="{Binding ColorBotonPresionado}" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="48,0,0,0" HorizontalAlignment="Right" Width="301" Height="37">
+                                    <Label x:Name="lblDireccionIndPr" HorizontalContentAlignment="Right" Content="Dirección" Width="92" Height="31" Margin="0,0,0,0" FontFamily="Georgia Pro" VerticalAlignment="Center" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                                    <TextBox x:Name="txtDireccionIndPr" Width="208" Height="24" Text="{Binding ProfesionalSeleccionado.Direccion}" Cursor="" TextWrapping="Wrap" FontFamily="Georgia Pro" IsEnabled="False" Background="{Binding ColorBotonPresionado}" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Width="269" Height="32">
+                                    <Label x:Name="lblEmailIndPr" HorizontalContentAlignment="Right" Content="Email" Width="55" Height="31" FontFamily="Georgia Pro" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                                    <TextBox x:Name="txtEmailIndPr" Width="208" Height="24" Text="{Binding ProfesionalSeleccionado.Email}" Margin="5,0,0,6" FontFamily="Georgia Pro" IsEnabled="False" Background="{Binding ColorBotonPresionado}" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Width="268">
+                                    <Label x:Name="lblSexoIndPr" HorizontalContentAlignment="Right" Content="Sexo" Width="55" Height="31" FontFamily="Georgia Pro" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                                    <TextBox x:Name="txtSexoIndPr" Width="207" Height="24" Text="{Binding ProfesionalSeleccionado.Sexo}" Margin="5,0,0,6" FontFamily="Georgia Pro" IsEnabled="False" Background="{Binding ColorBotonPresionado}" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Width="420" HorizontalAlignment="Right" >
+                                    <Label x:Name="lblSanitarioInd" HorizontalContentAlignment="Right" Content="Profesional sanitario" Width="206" Height="31" FontFamily="Georgia Pro" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                                    <CheckBox x:Name="checkSanitarioInd" Width="15" Height="15" Margin="5,0,0,6" FontFamily="Georgia Pro" IsEnabled="False"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Width="442" HorizontalAlignment="Right">
+                                    <Label x:Name="lblLimpiezaInd" HorizontalContentAlignment="Right" Content="Profesional de limpieza" Width="228" Height="29" Margin="0,0,0,0" FontFamily="Georgia Pro" VerticalAlignment="Center" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                                    <CheckBox x:Name="checkLimpiezaInd" Width="15" Height="14" Margin="5,0,0,6" FontFamily="Georgia Pro" IsEnabled="False"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Canvas>
+                    </Grid>
+                </TabItem>
+                <TabItem x:Name="TabHistorialProf" Header="Historial de citas" Margin="0,17,-2,-38" FontFamily="Georgia Pro" Background="{Binding ColorBotonPresionado}" FontSize="{Binding TamanioLetra}">
+                    <Grid>
+                        <DataGrid x:Name="dgrHistorialProf" Visibility="Hidden" Background="{Binding ColorBotonNoPresionado}" Margin="0,0,1,0" MinRowHeight="20" Focusable="False" IsReadOnly="True">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Fecha" Binding="{Binding fecha}" />
+                                <DataGridTextColumn Header="Hora" Binding="{Binding hora}" />
+                                <DataGridTextColumn Header="Paciente" Binding="{Binding paciente}" />
+                                <DataGridTemplateColumn Header="Estado">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Rectangle Width="16" Height="16">
+                                                <Rectangle.Style>
+                                                    <Style TargetType="{x:Type Rectangle}">
+                                                        <Setter Property="Fill" Value="Transparent"/>
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding estado}" Value="Pendiente">
+                                                                <Setter Property="Fill" Value="Yellow"/>
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding estado}" Value="Cancelada">
+                                                                <Setter Property="Fill" Value="Red"/>
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding estado}" Value="Finalizada">
+                                                                <Setter Property="Fill" Value="Green"/>
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Rectangle.Style>
+                                            </Rectangle>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+
+                        <Label x:Name="LeyendaProfs" HorizontalAlignment="Center" Visibility="Hidden">
+                            <StackPanel Orientation="Horizontal" Margin="0,220,0,0">
+                                <Rectangle Width="16" Height="16" Fill="Red" Margin="0,0,4,0"/>
+                                <TextBlock Text="Cancelada" VerticalAlignment="Center" Margin="0,0,8,0" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+
+                                <Rectangle Width="16" Height="16" Fill="Green" Margin="0,0,4,0"/>
+                                <TextBlock Text="Finalizada" VerticalAlignment="Center" Margin="0,0,8,0"  Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+
+                                <Rectangle Width="16" Height="16" Fill="Yellow" Margin="0,0,4,0"/>
+                                <TextBlock Text="Pendiente" VerticalAlignment="Center" Margin="0,0,8,0"  Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+
+                            </StackPanel>
+                        </Label>
+                        <Label x:Name="lblHistorial" Margin="0,100,0,0" HorizontalAlignment="Center" Visibility="Hidden"/>
+                    </Grid>
+                </TabItem>
+
+            </TabControl>
+            <DataGrid x:Name="dgInfoProfesionales" Grid.Column="1" Margin="21,2,602,0" Grid.Row="2" AutoGenerateColumns="False" SelectionChanged="dgInfoProfesionales_SelectionChanged" FontFamily="Georgia Pro" Background="{Binding ColorBotonNoPresionado}" FontSize="{Binding TamanioLetra}" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Foto" Width="40"/>
+                    <DataGridTextColumn Header="Nombre" Width="80" Binding="{Binding Nombre}"/>
+                    <DataGridTextColumn Header="Apellidos" Width="80" Binding="{Binding Apellidos}"/>
+                    <DataGridTextColumn Header="DNI" Width="80" Binding="{Binding DNI}"/>
+                </DataGrid.Columns>
+
+            </DataGrid>
+            <GroupBox Header="" Margin="21,48,0,0" Grid.Column="1" Grid.Row="1" BorderBrush="{Binding ColorLetra}" Background="{Binding ColorPanel}" Height="46" VerticalAlignment="Top" HorizontalAlignment="Left" Width="712">
+                <StackPanel Margin="-6,-8,-2,-2" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal">
+                    <Button x:Name="btnBuscarSan" ToolTip="Haz click para buscar un profesional" Background="{Binding ColorBotonNoPresionado}" Height="28" Width="50" Margin="1,0,0,0" Click="btnBuscarSan_Click">
+                        <Image Source="/img/search.png" Height="28" Width="50"/>
+                    </Button>
+                    <TextBox x:Name="txtbBuscarSanitario" TextWrapping="Wrap" Text="Introduce el nombre, DNI, o email de un profesional..." Width="659" Height="29" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}" FontFamily="Georgia Pro" Background="{Binding ColorBotonPresionado}" GotFocus="txtbBuscarSanitario_GotFocus" LostFocus="txtbBuscarSanitario_LostFocus">
+                        <TextBox.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleY="1"/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </TextBox.RenderTransform>
+                    </TextBox>
+                </StackPanel>
+            </GroupBox>
+            <Button x:Name="btnFiltrarProf" Grid.Column="1" Margin="772,60,0,0" ToolTip="Haz click para filtrar" Grid.Row="1" HorizontalAlignment="Left" Width="34" Height="34" VerticalAlignment="Top" Cursor="Hand" Background="{Binding ColorBotonNoPresionado}">
+                <Image Source="/img/filtro.png" Height="40" Width="25"/>
+            </Button>
+        </Grid>
+        <Grid x:Name="gridProfesionalesAgregar" Grid.ColumnSpan="5" Grid.RowSpan="3" Margin="0,0,0,-32">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="101*"/>
+                <RowDefinition Height="274*"/>
+                <RowDefinition Height="246*"/>
+                <RowDefinition Height="57*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="19*"/>
+                <ColumnDefinition Width="16*"/>
+                <ColumnDefinition Width="70*"/>
+                <ColumnDefinition Width="15*"/>
+            </Grid.ColumnDefinitions>
+            <GroupBox x:Name="GrDatosPersonalesProf" Grid.Column="2" Header="Datos Personales" Margin="0,10,0,2" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}" BorderBrush="{Binding ColorLetra}" BorderThickness="2" FontFamily="Georgia Pro" Grid.Row="1" FontWeight="Bold" Background="{Binding ColorPanel}">
+                <Canvas VerticalAlignment="Top" Height="240" Margin="-2,0,0,0" HorizontalAlignment="Left" Width="692">
+                    <StackPanel HorizontalAlignment="Center" Height="220" VerticalAlignment="Top" Width="281" Canvas.Top="10">
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                            <Label x:Name="lblNombrePr" HorizontalContentAlignment="Right" Content="Nombre" Width="120" Height="29" Margin="0,0,0,0" FontFamily="Georgia Pro" FontWeight="Normal" HorizontalAlignment="Right" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                            <TextBox x:Name="txtNombrePr" Width="149" Height="29" Margin="5,0,0,6" FontFamily="Georgia Pro" Cursor="IBeam" Background="{Binding ColorBotonNoPresionado}" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}" FontWeight="Normal"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                            <Label x:Name="lblApellidosPr" HorizontalContentAlignment="Right" Content="Apellidos" Width="118" Height="29" Margin="0,0,0,0" FontFamily="Georgia Pro" FontWeight="Normal" HorizontalAlignment="Right" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                            <TextBox x:Name="txtApellidoPr" Width="148" Height="29" Margin="5,0,0,6" FontFamily="Georgia Pro" Cursor="IBeam" Background="{Binding ColorBotonNoPresionado}" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}" FontWeight="Normal"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                            <Label x:Name="lblDNIPr" HorizontalContentAlignment="Right" Content="DNI" Width="116" Height="29" Margin="0,0,0,0" FontFamily="Georgia Pro" FontWeight="Normal" HorizontalAlignment="Right" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                            <TextBox x:Name="txtDNIPr" HorizontalAlignment="Left" Width="120" Height="29" Margin="5,0,0,6" FontFamily="Georgia Pro" Cursor="IBeam" Background="{Binding ColorBotonNoPresionado}" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}" FontWeight="Normal"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                            <Label x:Name="lblTlfPr" HorizontalContentAlignment="Right" Content="Teléfono" Width="118" Height="29" Margin="0,0,0,0" FontFamily="Georgia Pro" FontWeight="Normal" HorizontalAlignment="Right" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                            <TextBox x:Name="txtTlfPr" HorizontalAlignment="Left" Width="120" Height="29" Margin="5,0,0,6" FontFamily="Georgia Pro" Cursor="IBeam" Background="{Binding ColorBotonNoPresionado}" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}" FontWeight="Normal"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                            <Label x:Name="lblFechaNacPr" HorizontalContentAlignment="Right" Content="Fecha de &#xA;Nacimiento" Width="118" Height="48" FontFamily="Georgia Pro" FontWeight="Normal" HorizontalAlignment="Right" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                            <TextBox x:Name="txtFechaNacPr" ToolTip="Introduce la fecha en formato dd/mm/aaaa" HorizontalAlignment="Left" Width="120" Height="29" Margin="5,0,0,6" Text=" / / " FontFamily="Georgia Pro" Cursor="IBeam" Background="{Binding ColorBotonNoPresionado}" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}" FontWeight="Normal"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Center" Height="235" Canvas.Left="281" VerticalAlignment="Top" Width="317" Canvas.Top="10">
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                            <Label x:Name="lblDireccionPr" HorizontalContentAlignment="Right" Content="Dirección" Width="121" Height="29" Margin="0,0,0,0" FontFamily="Georgia Pro" FontWeight="Normal" HorizontalAlignment="Right" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                            <TextBox x:Name="txtDireccionPr" Width="170" Height="29" Margin="5,0,0,6" Cursor="IBeam" FontFamily="Georgia Pro" Background="{Binding ColorBotonNoPresionado}" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}" FontWeight="Normal"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                            <Label x:Name="lblEmailPr" HorizontalContentAlignment="Right" Content="Email" Width="121" Height="29" Margin="0,0,0,0" FontFamily="Georgia Pro" FontWeight="Normal" HorizontalAlignment="Right" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                            <TextBox x:Name="txtEmailPr" Width="167" Height="29" Margin="5,0,0,6" FontFamily="Georgia Pro" Cursor="IBeam" Background="{Binding ColorBotonNoPresionado}" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}" FontWeight="Normal"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                            <Label x:Name="lblSexoPr" HorizontalContentAlignment="Right" Content="Sexo" Width="121" Height="29" Margin="0,0,0,0" FontFamily="Georgia Pro" FontWeight="Normal" HorizontalAlignment="Right" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                            <ComboBox x:Name="cbSexoPr" Width="117" Height="29" Margin="5,0,0,6" FontFamily="Georgia Pro" Cursor="Hand" Background="{Binding ColorBotonNoPresionado}" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}" FontWeight="Normal">
+                                <ComboBoxItem Tag="Masculino" Content="Masculino"/>
+                                <ComboBoxItem Tag="Femenino" Content="Femenino"/>
+                            </ComboBox>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                            <Label x:Name="lblSanitario1" HorizontalContentAlignment="Right" Content="Profesional &#xA;sanitario" Width="121" Height="47" Margin="0,0,0,0" FontFamily="Georgia Pro" FontWeight="Normal" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                            <CheckBox x:Name="checkSanitario" Content=""  Margin="5,6,0,6" Width="16" Cursor="Hand"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label x:Name="lblLimpieza" HorizontalContentAlignment="Right" Content="Profesional de &#xA;limpieza" Width="121" Height="44" Margin="0,0,0,0" FontFamily="Georgia Pro" VerticalAlignment="Center" FontWeight="Normal" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                            <CheckBox x:Name="checkLimpieza" Content=""  Margin="5,6,0,6" Width="16" HorizontalAlignment="Center" VerticalAlignment="Center" Cursor="Hand"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <Button x:Name="btnAñadirProfesional" ToolTip="Haz click para añadir un profesional" Height="41" Width="179" Click="btnAñadirProfesional_Click" Cursor="Hand" Background="{Binding ColorBotonNoPresionado}" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}" Canvas.Left="503" Canvas.Top="189">
+                        <StackPanel Orientation="Horizontal" Width="174">
+                            <Image Source="/img/menu/mas.png" Height="22" Width="22" Margin="0,0,0,0"/>
+                            <Label Content="Añadir profesional" HorizontalContentAlignment="Left" VerticalAlignment="Center" FontFamily="Georgia Pro" Margin="10,0,0,0" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}" FontWeight="Normal" Height="30" Width="142"/>
+                        </StackPanel>
+                    </Button>
+                </Canvas>
+            </GroupBox>
+            <GroupBox x:Name="GrInformes1" Grid.Column="1" Header="Curriculum Vitae" Grid.Row="2" Margin="10,5,0,0" BorderBrush="{Binding ColorLetra}" BorderThickness="2" Grid.ColumnSpan="2" FontFamily="Georgia Pro" FontWeight="Bold" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}" Background="{Binding ColorPanel}">
+                <TextBox Margin="10,0,11,0" TextWrapping="Wrap" Height="155" FontFamily="Georgia Pro" FontWeight="Normal" Text="+ CV:"  Background="{Binding ColorBotonNoPresionado}" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+            </GroupBox>
+            <Image x:Name="imgFotoPaciente1" Grid.Column="1" HorizontalAlignment="Center" Height="109" Grid.Row="1" VerticalAlignment="Center" Width="100" OpacityMask="Black" Source="/img/menu_agregar_sin_foto.png"/>
+            <Label Grid.Column="1" Content="Foto de perfil" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Height="35" Margin="0,199,0,0" Grid.Row="1" VerticalAlignment="Top" Width="116" FontFamily="Georgia Pro" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+        </Grid>
+        <Grid x:Name="gridMasAjustes" Grid.ColumnSpan="5" Grid.RowSpan="3" d:IsHidden="True">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="101*"/>
+                <RowDefinition Height="522*"/>
+                <RowDefinition Height="23*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="186*"/>
+                <ColumnDefinition Width="863*"/>
+                <ColumnDefinition Width="150*"/>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="lblAjustesDeLaAplicacion" Content="Ajustes de la aplicación" FontFamily="Georgia Pro" FontSize="32" Margin="32,10,0,0" Grid.Column="2" Grid.Row="1" Height="55" VerticalAlignment="Top" HorizontalAlignment="Left" Width="354" Foreground="{Binding ColorLetra}"/>
+            <Rectangle Stroke="{Binding ColorLetra}" Grid.Column="2" StrokeThickness="3" Margin="32,70,0,0" Grid.Row="1" Fill="{Binding ColorPanel}" HorizontalAlignment="Left" Width="765" Height="397" VerticalAlignment="Top"/>
+            <StackPanel x:Name="spAjustes" Grid.Column="2" Grid.Row="1" Margin="32,70,0,0" Height="397" VerticalAlignment="Top" HorizontalAlignment="Left" Width="765">
+                <Label x:Name="lblOscuro" VerticalContentAlignment="Center" Content="Modo Oscuro" FontFamily="Georgia Pro" Foreground="{Binding ColorLetra}" Height="38"  FontSize="{Binding TamanioLetra}"/>
+                <Separator Height="3" Width="763" BorderThickness="3" BorderBrush="{Binding ColorLetra}"/>
+                <StackPanel Height="34" Orientation="Horizontal">
+                    <Label x:Name="lblTamañoLetra"  VerticalContentAlignment="Center" Content="Tamaño de fuente" FontFamily="Georgia Pro" Width="153" Height="30" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}"/>
+                    <Button x:Name="btnPequeño" FontFamily="Georgia Pro" ToolTip="Áñade un nuevo profesional al listado de profesionales." Height="30" Width="120" Margin="14.9,0,0,0" Click="btnPequeño_Click">
+                        <TextBlock FontSize="12" Width="51" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"><Run Language="es-es" Text="Pequeño"/></TextBlock>
+                    </Button>
+                    <Button x:Name="btnMediano" FontFamily="Georgia Pro" ToolTip="Áñade un nuevo profesional al listado de profesionales." Height="30" Width="120" Click="btnMediano_Click">
+                        <TextBlock Width="79" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"><Run Language="es-es" Text="Mediano"/></TextBlock>
+                    </Button>
+                    <Button x:Name="btnGrande" FontFamily="Georgia Pro" ToolTip="Áñade un nuevo profesional al listado de profesionales." Height="30" Width="120" Click="btnGrande_Click">
+                        <TextBlock Width="79" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontSize="18"><Run Language="es-es" Text="Grande"/></TextBlock>
+                    </Button>
+                </StackPanel>
+                <Separator Height="3" Width="764" BorderThickness="3" BorderBrush="{Binding ColorLetra}"/>
+            </StackPanel>
+            <CheckBox x:Name="checkOscuro" Grid.Column="2" Margin="201,79,0,0" Grid.Row="1" Height="19" VerticalAlignment="Top" HorizontalAlignment="Left" Width="16" Unchecked="checkOscuro_unchecked" Checked="checkOscuro_checked"/>
+        </Grid>
+        <Grid x:Name="gridMasAyuda" Grid.ColumnSpan="5" Grid.RowSpan="3" d:IsHidden="True">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="101*"/>
+                <RowDefinition Height="104*"/>
+                <RowDefinition Height="163*"/>
+                <RowDefinition Height="279*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="21*"/>
+                <ColumnDefinition Width="166*"/>
+                <ColumnDefinition Width="570*"/>
+                <ColumnDefinition Width="293*"/>
+                <ColumnDefinition Width="150*"/>
+            </Grid.ColumnDefinitions>
+            <Rectangle Stroke="{Binding ColorLetra}" Grid.Column="2" StrokeThickness="3" Margin="30,70,66,78" Grid.Row="1" Fill="{Binding ColorPanel}" Grid.ColumnSpan="2" Grid.RowSpan="3"/>
+            <Label x:Name="lblAyuda" Content="¿Necesitas Ayuda?" Height="48" VerticalAlignment="Top" FontFamily="Georgia Pro" FontSize="32" Margin="36,14,92,0" Grid.Column="2" Grid.Row="1" Foreground="{Binding ColorLetra}"/>
+            <Label x:Name="lblPregFrecuentes" Grid.Column="2" Content="Preguntas frecuentes:" Margin="64,100,0,0" Grid.Row="1" Foreground="{Binding ColorLetra}" FontWeight="Bold" FontSize="{Binding TamanioLetra}" Height="39" VerticalAlignment="Top" Grid.RowSpan="2" HorizontalAlignment="Left" Width="349"/>
+            <Label x:Name="lblEncontrar" Grid.Column="2" Content="¿No encuentras lo que necesitas?" Margin="70,10,58,0" Grid.Row="3" Foreground="{Binding ColorLetra}" FontWeight="Bold" FontSize="{Binding TamanioLetra}" Height="34" VerticalAlignment="Top"/>
+            <Label x:Name="lblProporcionManual" Grid.Column="2" Content="Te proporcionamos el manual de la aplicación:" Margin="89,44,0,0" Grid.Row="3" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}" Height="37" VerticalAlignment="Top" HorizontalAlignment="Left" Width="423"/>
+            <Button x:Name="btnManual" Grid.Column="2" Margin="89,0,0,99" Grid.Row="3" Background="{Binding ColorBotonNoPresionado}" Cursor="Hand" Height="94" VerticalAlignment="Bottom" Click="btnManual_Click" HorizontalAlignment="Left" Width="191">
+                <Image x:Name="Manual" Source="/img/manual.png"/>
+            </Button>
+            <StackPanel Margin="70,40,0,0" Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="518" Height="119" VerticalAlignment="Top">
+                <Button x:Name="btnFondoNegro" Content="¿Por qué mi página tiene fondo negro?" Height="37" Margin="0,0,0,20" Cursor="Hand" Background="{Binding ColorBotonNoPresionado}" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}" Click="BtnFondoNegro_Click"/>
+                <Button x:Name="btnEliminarCitaAtendida" Content="¿Puedo eliminar una cita que ya he atendido?" Height="45" Cursor="Hand" Background="{Binding ColorBotonNoPresionado}" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}" Click="btnEliminarCitaAtendida_Click"/>
+            </StackPanel>
+        </Grid>
+        <Grid x:Name="gridMasCreditos" Grid.ColumnSpan="5" Grid.RowSpan="3" d:IsHidden="True">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="101*"/>
+                <RowDefinition Height="523*"/>
+                <RowDefinition Height="22*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="187*"/>
+                <ColumnDefinition Width="588*"/>
+                <ColumnDefinition Width="275*"/>
+                <ColumnDefinition Width="149*"/>
+            </Grid.ColumnDefinitions>
+            <Rectangle Stroke="{Binding ColorLetra}" Grid.Column="1" StrokeThickness="3" Margin="30,70,67,56" Grid.Row="1" Fill="{Binding ColorPanel}" Grid.ColumnSpan="2"/>
+            <Label Content="Créditos" Height="76" VerticalAlignment="Top" FontFamily="Georgia Pro" FontSize="32" Margin="45,12,0,0" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Width="265" Foreground="{Binding ColorLetra}"/>
+            <TextBlock Grid.Column="1" Margin="75,0,98,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" Height="337" TextAlignment="Justify" FontFamily="Georgia Pro" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}" Grid.ColumnSpan="2"><Run Text="Esta aplicación fue desarrollada por un grupo de futuros profesionales de la Escuela Superior de Informática, para su proyecto de Laboratorio de IPO1."/><LineBreak/><LineBreak/><LineBreak/><Run Text="Estos profesionales son:"/><Run/><LineBreak/><Run/><LineBreak/><Run Text="&#x9;- Helena Neves García"/><LineBreak/><Run Text="&#x9;- Manuel Perales Briones"/><LineBreak/><Run Text="&#x9;- Miguel Ángel Ruiz Arreaza"/></TextBlock>
+        </Grid>
+        <Label x:Name="lblFechaUltimoAcceso" Content="Último Acceso:" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="46,20,0,20" Width="110" Grid.Column="3" FontFamily="Georgia Pro" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}" d:IsHidden="True"/>
+        <Image x:Name="imgUsuarioMini" 
+                    Margin="37,8,37,8" Grid.Column="4" Source="/img/user_profile_picture.png"/>
+
+        <Rectangle Grid.Column="1" StrokeThickness="3" Margin="2,1,2,25" Grid.Row="1" Stroke="White" Grid.RowSpan="2" >
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF0065C6" Offset="1"/>
+                    <GradientStop Color="#FF00BEFF" Offset="0"/>
+                    <GradientStop Color="#FF007DE0" Offset="0.732"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <StackPanel x:Name="stackPanelMainSelection" Margin="2,1,2,0" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Cursor="">
+            <Label x:Name="lblPlanificacion1" 
+                        Height = "32"
+                        Width = "142"
+                        Margin="0,8,0,0"
+                        HorizontalAlignment="Center"
+                        HorizontalContentAlignment="Center"
+                        ToolTip="Sección de planificación de citas"
+                        VerticalContentAlignment="Center" BorderThickness="1,1,1,1" FontFamily="Georgia Pro" Foreground="White">
+                <StackPanel Orientation="Horizontal" Height="44" Width="139" HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <Image Source="/img/menu/planificacion.png" Margin="0,0,5,0" Height="20" Width="18"/>
+                    <Label Content="Planificación" FontSize="{Binding TamanioLetra}" Height="34" Width="112" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                </StackPanel>
+            </Label>
+            <Button x:Name="btnCalendario1" Height="30" Width="136" Click="btnCalendario_Click" FontFamily="Georgia Pro" ToolTip="Accede a calendario de citas programadas." Background="{Binding ColorBotonNoPresionado}" Cursor="Hand">
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/img/menu/calendario.png" Height="24" Width="22" Margin="0,0,5,0"/>
+                    <Label Content="Calendario" VerticalAlignment="Center" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}" Height="34" Width="98" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="btnNuevaCita1" Height="30" Width="136" Click="btnNuevaCita_Click" FontFamily="Georgia Pro" ToolTip="Crea una nueva cita para un paciente." Background="{Binding ColorBotonNoPresionado}" Cursor="Hand">
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/img/menu/mas.png" Height="45" Width="18" Margin="0,0,5,0"/>
+                    <Label Content="Nueva Cita" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}" Height="34" Width="101" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+
+            <Label x:Name="lblPacientes1"
+                        Height = "32"
+                        Width = "130"
+                        HorizontalAlignment="Center"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        ToolTip="Sección sobre pacientes"
+                        Margin="0,15,0,0" FontFamily="Georgia Pro" Foreground="White">
+                <StackPanel Orientation="Horizontal" Height="36" Width="120" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Image Source="/img/menu/pacientes.png" Margin="0,0,5,0" Height="26" Width="22"/>
+                    <Label Content="Pacientes" FontSize="{Binding TamanioLetra}" Height="34" Width="85" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                </StackPanel>
+            </Label>
+            <Button x:Name="btnListaPac1" Height="30" Width="136" Click="btnListaPac_Click" FontFamily="Georgia Pro" ToolTip="Consulta el listado de pacientes." Background="{Binding ColorBotonNoPresionado}" Cursor="Hand">
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/img/menu/listado.png" Height="48" Width="22" Margin="0,0,5,0"/>
+                    <Label Content="Listado" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}" Height="34" Width="88" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="btnNuevoPac1" Height="30" Width="136" Click="btnNuevoPac_Click" FontFamily="Georgia Pro" ToolTip="Añade un nuevo paciente al listado de pacientes." Background="{Binding ColorBotonNoPresionado}" Cursor="Hand">
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/img/menu/mas.png" Height="45" Width="18" Margin="0,0,5,0"/>
+                    <Label Content="Añadir" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}" Height="34" Width="90" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+
+            <Label x:Name="lblProfesionales1"
+                        Height = "35"
+                        Width = "164"
+                        HorizontalAlignment="Center"
+                        HorizontalContentAlignment="Center"
+                        ToolTip="Sección sobre los profesionales que trabajan en el centro"
+                        VerticalContentAlignment="Center"
+                        Margin="0,15,0,0" FontFamily="Georgia Pro" Foreground="White">
+                <StackPanel Orientation="Horizontal" Height="42" Width="139" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image Source="/img/menu/profesional.png" Margin="10,0,5,0" Height="24" Width="18" />
+                    <Label Content="Profesionales" FontSize="{Binding TamanioLetra}" Height="34" Width="127" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="White"/>
+                </StackPanel>
+            </Label>
+            <Button x:Name="btnListaProf1" Height="30" Width="136" Click="btnListaProf_Click" FontFamily="Georgia Pro" ToolTip="Consulta el listado de profesionales." Background="{Binding ColorBotonNoPresionado}" Cursor="Hand">
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/img/menu/listado.png" Height="48" Width="22" Margin="0,0,5,0"/>
+                    <Label Content="Listado" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}" Height="34" Width="90" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="btnNuevoProf1" Height="30" Width="136" Click="btnNuevoProf_Click" FontFamily="Georgia Pro" ToolTip="Áñade un nuevo profesional al listado de profesionales." Background="{Binding ColorBotonNoPresionado}" Cursor="Hand">
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/img/menu/mas.png" Height="45" Width="18" Margin="0,0,5,0"/>
+                    <Label Content="Añadir" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}" Height="34" Width="92" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+
+            <Label x:Name="lblMas1"
+                        Height = "31"
+                        Width = "140"
+                        HorizontalAlignment="Center"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center"
+                   ToolTip="Sección de opciones adicionales"
+                        Margin="0,15,0,0" FontFamily="Georgia Pro" Foreground="White">
+                <StackPanel Orientation="Horizontal" Height="37" Width="110" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image Source="/img/menu/masinfo.png" Margin="0,0,5,0" Height="18" Width="17"/>
+                    <Label Content="Más" FontSize="{Binding TamanioLetra}" Height="34" Width="44" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White"/>
+                </StackPanel>
+            </Label>
+            <Button x:Name="btnAjustes1" Height="30" Width="136" Click="btnAjustes_Click" FontFamily="Georgia Pro" ToolTip="Edita las preferencias y ajustes de la aplicación a tu gusto." Background="{Binding ColorBotonNoPresionado}" Cursor="Hand">
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/img/menu/ajustes.png" Height="24" Width="22" Margin="0,0,5,0"/>
+                    <Label Content="Ajustes" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}" Height="34" Width="92" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="btnAyuda1" Height="30" Width="136" Click="btnAyuda_Click" FontFamily="Georgia Pro" ToolTip="Accede a recursos de ayuda para resolver dudas." Background="{Binding ColorBotonNoPresionado}" Cursor="Hand">
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/img/menu/ayuda.png" Margin="0,0,5,0" Height="24" Width="22"/>
+                    <Label Content="Ayuda" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}" Height="34" Width="92" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="btnCreditos1" Height="30" Width="136" Click="btnCreditos_Click" FontFamily="Georgia Pro" ToolTip="Visualiza los créditos otorgados a los desarrolladores de la aplicación." Background="{Binding ColorBotonNoPresionado}" Cursor="Hand">
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/img/menu/creditos.png"  Margin="0,0,5,0"/>
+                    <Label Content="Créditos" Foreground="{Binding ColorLetra}" FontSize="{Binding TamanioLetra}" Height="34" Width="90" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+        <Button Background="{DynamicResource ButtonBackground1}" BorderThickness="3" x:Name="btnHome" HorizontalAlignment="Center" ToolTip="Ve a la pantalla de inicio." Width="148" Click="Home_Click" Foreground="{x:Null}" BorderBrush="White" Height="53" VerticalAlignment="Center" Grid.Column="1" Cursor="Hand">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+            <StackPanel Width="107" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image x:Name="imgHome" Source = "/img/home.png" RenderTransformOrigin="0.975,0.201" Height="38" Width="43"/>
+                <Label x:Name="lblHome" Content="INICIO" VerticalContentAlignment="Center" FontFamily="Georgia Pro" Height="32" FontSize="{Binding TamanioLetra}" Foreground="White" FontWeight="Bold"/>
+            </StackPanel>
+        </Button>
+        <Button x:Name="btncerrar_sesion" Grid.Column="4" BorderThickness="3" HorizontalAlignment="Center" ToolTip="Cierra la sesión de la cuenta." Background="{DynamicResource ButtonBackground1}" Foreground="{x:Null}" BorderBrush="White" 
+                Margin="0,296,0,0" Grid.Row="1" VerticalAlignment="Top" Height="100" Width="100" Click="btncerrar_sesion_Click" Cursor="Hand">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+            <StackPanel>
+                <Image Source="img/cerrar_sesion.png" Height="50" Width="50"/>
+                <Label Content="Cerrar sesión" HorizontalContentAlignment="Center" FontSize="{Binding TamanioLetra}" Width="108" Height="34" HorizontalAlignment="Center" Foreground="White"/>
+            </StackPanel>
+        </Button>
+        <Button x:Name="btnsalir" Grid.Column="4" BorderThickness="3" HorizontalAlignment="Center" ToolTip="Cierra la aplicación."  Background="{DynamicResource ButtonBackground1}" Foreground="{x:Null}" BorderBrush="White" 
+                Margin="0,410,0,0" Grid.Row="1" VerticalAlignment="Top" Height="94" Width="98" Click="btnsalir_Click" RenderTransformOrigin="0.426,2.546" Cursor="Hand">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.207"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <StackPanel Width="50" Height="79">
+                <Image Source="img/salir.png" Height="50" Width="50"/>
+                <Label Content="Salir" HorizontalContentAlignment="Center" HorizontalAlignment="Center" FontSize="{Binding TamanioLetra}" Height="33" Width="64" FontWeight="Bold" Foreground="White"/>
+            </StackPanel>
+
+        </Button>
+    </Grid>
+</Window>

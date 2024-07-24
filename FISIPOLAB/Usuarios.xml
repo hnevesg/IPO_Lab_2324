@@ -1,0 +1,38 @@
+<Usuarios>
+  <Usuario 
+	  Nombre="John" 
+	  Apellidos="Doe"
+	  DNI="12345678A" 
+	  FechaNacimiento="01/01/1980" 
+	  Direccion="123 Main St, City"
+	  Telefono="123456789" 
+	  Email="john.doe@example.com"
+	  NombreUsuario="johndoe" 
+	  Contrasenia="987"
+	  FechaUltimoAcceso="01/01/2019"
+	  />
+  <Usuario 
+	  Nombre="Jane"
+	  Apellidos="Smith"
+	  DNI="87654321B" 
+	  FechaNacimiento="15/05/1992" 
+	  Direccion="456 Oak St, Town" 
+	  Telefono="987654213" 
+	  Email="jane.smith@example.com"
+	  NombreUsuario="janesmith" 
+	  Contrasenia="1234"
+	  FechaUltimoAcceso="07/07/2021"
+	  />
+  <Usuario
+	  Nombre="Alice" 
+	  Apellidos="Johnson" 
+	  DNI="56789012C" 
+	  FechaNacimiento="20/11/1985" 
+	  Direccion="789 Pine St, Village"
+	  Telefono="555123456" 
+	  Email="alice.johnson@example.com"
+	  NombreUsuario="alicej" 
+	  Contrasenia="123"
+	  FechaUltimoAcceso="29/02/2020"
+	  />
+</Usuarios>

@@ -1,0 +1,4 @@
+<Pacientes>
+  <Paciente Nombre="Juan" Apellidos="Pérez" DNI="12345678Z" FechaNacimiento="15/03/1990" Direccion="Calle 123, Ciudad A, País" Telefono="555123456" Email="jp@gmail.com" Sexo="Masculino" Fumador="false" Cirugia="true" />
+  <Paciente Nombre="Maria" Apellidos="Gómez" DNI="98765432Q" FechaNacimiento="20/05/1985" Direccion="Avenida 456, Ciudad B, País" Telefono="111567890" Email="mgomez@gmail.com" Sexo="Femenino" Fumador="true" Cirugia="false" />
+</Pacientes>

@@ -1,0 +1,91 @@
+C:\Users\Usuario\OneDrive\Documentos\GitHub\IPO1_LAB\FISIPOLAB_\obj\Debug\FISIPOLAB_.csproj.AssemblyReference.cache
+C:\Users\Usuario\OneDrive\Documentos\GitHub\IPO1_LAB\FISIPOLAB_\obj\Debug\FISIPOLAB_.csproj.SuggestedBindingRedirects.cache
+C:\Users\Usuario\OneDrive\Documentos\GitHub\IPO1_LAB\FISIPOLAB_\obj\Debug\Login.g.cs
+C:\Users\Usuario\OneDrive\Documentos\GitHub\IPO1_LAB\FISIPOLAB_\obj\Debug\MainWindow.g.cs
+C:\Users\Usuario\OneDrive\Documentos\GitHub\IPO1_LAB\FISIPOLAB_\obj\Debug\App.g.cs
+C:\Users\Usuario\OneDrive\Documentos\GitHub\IPO1_LAB\FISIPOLAB_\obj\Debug\FISIPOLAB__MarkupCompile.cache
+C:\Users\Usuario\OneDrive\Documentos\GitHub\IPO1_LAB\FISIPOLAB_\obj\Debug\FISIPOLAB__MarkupCompile.lref
+C:\Users\Usuario\OneDrive\Documentos\GitHub\IPO1_LAB\FISIPOLAB_\obj\Debug\LoginV2.g.cs
+C:\Users\Usuario\OneDrive\Documentos\GitHub\IPO1_LAB\FISIPOLAB_\bin\Debug\FISIPOLAB_.exe.config
+C:\Users\Usuario\OneDrive\Documentos\GitHub\IPO1_LAB\FISIPOLAB_\bin\Debug\FISIPOLAB_.exe
+C:\Users\Usuario\OneDrive\Documentos\GitHub\IPO1_LAB\FISIPOLAB_\bin\Debug\FISIPOLAB_.pdb
+C:\Users\Usuario\OneDrive\Documentos\GitHub\IPO1_LAB\FISIPOLAB_\obj\Debug\Login.baml
+C:\Users\Usuario\OneDrive\Documentos\GitHub\IPO1_LAB\FISIPOLAB_\obj\Debug\LoginV2.baml
+C:\Users\Usuario\OneDrive\Documentos\GitHub\IPO1_LAB\FISIPOLAB_\obj\Debug\MainWindow.baml
+C:\Users\Usuario\OneDrive\Documentos\GitHub\IPO1_LAB\FISIPOLAB_\obj\Debug\FISIPOLAB_.g.resources
+C:\Users\Usuario\OneDrive\Documentos\GitHub\IPO1_LAB\FISIPOLAB_\obj\Debug\FISIPOLAB_.Properties.Resources.resources
+C:\Users\Usuario\OneDrive\Documentos\GitHub\IPO1_LAB\FISIPOLAB_\obj\Debug\FISIPOLAB_.csproj.GenerateResource.cache
+C:\Users\Usuario\OneDrive\Documentos\GitHub\IPO1_LAB\FISIPOLAB_\obj\Debug\FISIPOLAB_.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\OneDrive\Documentos\GitHub\IPO1_LAB\FISIPOLAB_\obj\Debug\FISIPOLAB_.exe
+C:\Users\Usuario\OneDrive\Documentos\GitHub\IPO1_LAB\FISIPOLAB_\obj\Debug\FISIPOLAB_.pdb
+C:\Users\Usuario\OneDrive\Documentos\GitHub\IPO1_LAB\FISIPOLAB_\obj\Debug\Planificacion.g.cs
+C:\Users\Usuario\OneDrive\Documentos\GitHub\IPO1_LAB\FISIPOLAB_\obj\Debug\Planificacion.baml
+C:\Users\Usuario\OneDrive\Documentos\GitHub\IPO1_LAB\FISIPOLAB_\obj\Debug\Pacientes.g.cs
+C:\Users\Usuario\OneDrive\Documentos\GitHub\IPO1_LAB\FISIPOLAB_\obj\Debug\Pacientes.baml
+D:\X2DccpJnPO\Y52QL4D0C3\yA5I3PGQcw\yAo2ZyB692\GitHub_Repositories\IPO1_LAB\FISIPOLAB_\obj\Debug\FISIPOLAB_.csproj.AssemblyReference.cache
+D:\X2DccpJnPO\Y52QL4D0C3\yA5I3PGQcw\yAo2ZyB692\GitHub_Repositories\IPO1_LAB\FISIPOLAB_\obj\Debug\LoginV2.g.cs
+D:\X2DccpJnPO\Y52QL4D0C3\yA5I3PGQcw\yAo2ZyB692\GitHub_Repositories\IPO1_LAB\FISIPOLAB_\obj\Debug\MainWindow.g.cs
+D:\X2DccpJnPO\Y52QL4D0C3\yA5I3PGQcw\yAo2ZyB692\GitHub_Repositories\IPO1_LAB\FISIPOLAB_\obj\Debug\App.g.cs
+D:\X2DccpJnPO\Y52QL4D0C3\yA5I3PGQcw\yAo2ZyB692\GitHub_Repositories\IPO1_LAB\FISIPOLAB_\obj\Debug\FISIPOLAB__MarkupCompile.cache
+D:\X2DccpJnPO\Y52QL4D0C3\yA5I3PGQcw\yAo2ZyB692\GitHub_Repositories\IPO1_LAB\FISIPOLAB_\obj\Debug\FISIPOLAB__MarkupCompile.lref
+D:\X2DccpJnPO\Y52QL4D0C3\yA5I3PGQcw\yAo2ZyB692\GitHub_Repositories\IPO1_LAB\FISIPOLAB_\obj\Debug\FISIPOLAB_.exe
+D:\X2DccpJnPO\Y52QL4D0C3\yA5I3PGQcw\yAo2ZyB692\GitHub_Repositories\IPO1_LAB\FISIPOLAB_\obj\Debug\FISIPOLAB_.pdb
+D:\X2DccpJnPO\Y52QL4D0C3\yA5I3PGQcw\yAo2ZyB692\GitHub_Repositories\IPO1_LAB\FISIPOLAB_\bin\Debug\FISIPOLAB_.exe.config
+D:\X2DccpJnPO\Y52QL4D0C3\yA5I3PGQcw\yAo2ZyB692\GitHub_Repositories\IPO1_LAB\FISIPOLAB_\bin\Debug\FISIPOLAB_.exe
+D:\X2DccpJnPO\Y52QL4D0C3\yA5I3PGQcw\yAo2ZyB692\GitHub_Repositories\IPO1_LAB\FISIPOLAB_\bin\Debug\FISIPOLAB_.pdb
+D:\X2DccpJnPO\Y52QL4D0C3\yA5I3PGQcw\yAo2ZyB692\GitHub_Repositories\IPO1_LAB\FISIPOLAB_\obj\Debug\LoginV2.baml
+D:\X2DccpJnPO\Y52QL4D0C3\yA5I3PGQcw\yAo2ZyB692\GitHub_Repositories\IPO1_LAB\FISIPOLAB_\obj\Debug\MainWindow.baml
+D:\X2DccpJnPO\Y52QL4D0C3\yA5I3PGQcw\yAo2ZyB692\GitHub_Repositories\IPO1_LAB\FISIPOLAB_\obj\Debug\FISIPOLAB_.g.resources
+D:\X2DccpJnPO\Y52QL4D0C3\yA5I3PGQcw\yAo2ZyB692\GitHub_Repositories\IPO1_LAB\FISIPOLAB_\obj\Debug\FISIPOLAB_.Properties.Resources.resources
+D:\X2DccpJnPO\Y52QL4D0C3\yA5I3PGQcw\yAo2ZyB692\GitHub_Repositories\IPO1_LAB\FISIPOLAB_\obj\Debug\FISIPOLAB_.csproj.GenerateResource.cache
+D:\X2DccpJnPO\Y52QL4D0C3\yA5I3PGQcw\yAo2ZyB692\GitHub_Repositories\IPO1_LAB\FISIPOLAB_\obj\Debug\FISIPOLAB_.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Documents\GitHub\IPO1_LAB\FISIPOLAB_\bin\Debug\FISIPOLAB_.exe.config
+C:\Users\Usuario\Documents\GitHub\IPO1_LAB\FISIPOLAB_\bin\Debug\FISIPOLAB_.exe
+C:\Users\Usuario\Documents\GitHub\IPO1_LAB\FISIPOLAB_\bin\Debug\FISIPOLAB_.pdb
+C:\Users\Usuario\Documents\GitHub\IPO1_LAB\FISIPOLAB_\obj\Debug\FISIPOLAB_.csproj.AssemblyReference.cache
+C:\Users\Usuario\Documents\GitHub\IPO1_LAB\FISIPOLAB_\obj\Debug\FISIPOLAB_.csproj.SuggestedBindingRedirects.cache
+C:\Users\Usuario\Documents\GitHub\IPO1_LAB\FISIPOLAB_\obj\Debug\LoginV2.g.cs
+C:\Users\Usuario\Documents\GitHub\IPO1_LAB\FISIPOLAB_\obj\Debug\MainWindow.g.cs
+C:\Users\Usuario\Documents\GitHub\IPO1_LAB\FISIPOLAB_\obj\Debug\App.g.cs
+C:\Users\Usuario\Documents\GitHub\IPO1_LAB\FISIPOLAB_\obj\Debug\FISIPOLAB__MarkupCompile.cache
+C:\Users\Usuario\Documents\GitHub\IPO1_LAB\FISIPOLAB_\obj\Debug\FISIPOLAB__MarkupCompile.lref
+C:\Users\Usuario\Documents\GitHub\IPO1_LAB\FISIPOLAB_\obj\Debug\LoginV2.baml
+C:\Users\Usuario\Documents\GitHub\IPO1_LAB\FISIPOLAB_\obj\Debug\MainWindow.baml
+C:\Users\Usuario\Documents\GitHub\IPO1_LAB\FISIPOLAB_\obj\Debug\FISIPOLAB_.g.resources
+C:\Users\Usuario\Documents\GitHub\IPO1_LAB\FISIPOLAB_\obj\Debug\FISIPOLAB_.Properties.Resources.resources
+C:\Users\Usuario\Documents\GitHub\IPO1_LAB\FISIPOLAB_\obj\Debug\FISIPOLAB_.csproj.GenerateResource.cache
+C:\Users\Usuario\Documents\GitHub\IPO1_LAB\FISIPOLAB_\obj\Debug\FISIPOLAB_.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Documents\GitHub\IPO1_LAB\FISIPOLAB_\obj\Debug\FISIPOLAB_.exe
+C:\Users\Usuario\Documents\GitHub\IPO1_LAB\FISIPOLAB_\obj\Debug\FISIPOLAB_.pdb
+C:\Users\craft\Documents\UNI DOCUMENTS\Interacción Persona-Ordenador I\Lab\IPO1_LAB\FISIPOLAB_\bin\Debug\FISIPOLAB_.exe.config
+C:\Users\craft\Documents\UNI DOCUMENTS\Interacción Persona-Ordenador I\Lab\IPO1_LAB\FISIPOLAB_\bin\Debug\FISIPOLAB_.exe
+C:\Users\craft\Documents\UNI DOCUMENTS\Interacción Persona-Ordenador I\Lab\IPO1_LAB\FISIPOLAB_\bin\Debug\FISIPOLAB_.pdb
+C:\Users\craft\Documents\UNI DOCUMENTS\Interacción Persona-Ordenador I\Lab\IPO1_LAB\FISIPOLAB_\obj\Debug\FISIPOLAB_.csproj.AssemblyReference.cache
+C:\Users\craft\Documents\UNI DOCUMENTS\Interacción Persona-Ordenador I\Lab\IPO1_LAB\FISIPOLAB_\obj\Debug\LoginV2.g.cs
+C:\Users\craft\Documents\UNI DOCUMENTS\Interacción Persona-Ordenador I\Lab\IPO1_LAB\FISIPOLAB_\obj\Debug\MainWindow.g.cs
+C:\Users\craft\Documents\UNI DOCUMENTS\Interacción Persona-Ordenador I\Lab\IPO1_LAB\FISIPOLAB_\obj\Debug\App.g.cs
+C:\Users\craft\Documents\UNI DOCUMENTS\Interacción Persona-Ordenador I\Lab\IPO1_LAB\FISIPOLAB_\obj\Debug\FISIPOLAB__MarkupCompile.cache
+C:\Users\craft\Documents\UNI DOCUMENTS\Interacción Persona-Ordenador I\Lab\IPO1_LAB\FISIPOLAB_\obj\Debug\FISIPOLAB__MarkupCompile.lref
+C:\Users\craft\Documents\UNI DOCUMENTS\Interacción Persona-Ordenador I\Lab\IPO1_LAB\FISIPOLAB_\obj\Debug\LoginV2.baml
+C:\Users\craft\Documents\UNI DOCUMENTS\Interacción Persona-Ordenador I\Lab\IPO1_LAB\FISIPOLAB_\obj\Debug\MainWindow.baml
+C:\Users\craft\Documents\UNI DOCUMENTS\Interacción Persona-Ordenador I\Lab\IPO1_LAB\FISIPOLAB_\obj\Debug\FISIPOLAB_.g.resources
+C:\Users\craft\Documents\UNI DOCUMENTS\Interacción Persona-Ordenador I\Lab\IPO1_LAB\FISIPOLAB_\obj\Debug\FISIPOLAB_.Properties.Resources.resources
+C:\Users\craft\Documents\UNI DOCUMENTS\Interacción Persona-Ordenador I\Lab\IPO1_LAB\FISIPOLAB_\obj\Debug\FISIPOLAB_.csproj.GenerateResource.cache
+C:\Users\craft\Documents\UNI DOCUMENTS\Interacción Persona-Ordenador I\Lab\IPO1_LAB\FISIPOLAB_\obj\Debug\FISIPOLAB_.csproj.CoreCompileInputs.cache
+C:\Users\craft\Documents\UNI DOCUMENTS\Interacción Persona-Ordenador I\Lab\IPO1_LAB\FISIPOLAB_\obj\Debug\FISIPOLAB_.exe
+C:\Users\craft\Documents\UNI DOCUMENTS\Interacción Persona-Ordenador I\Lab\IPO1_LAB\FISIPOLAB_\obj\Debug\FISIPOLAB_.pdb
+C:\Users\Usuario\Documents\GitHub\IPO1_LAB\FISIPOLAB_\obj\Debug\CustomMessageBox.g.cs
+C:\Users\Usuario\Documents\GitHub\IPO1_LAB\FISIPOLAB_\obj\Debug\CustomMessageBox.baml
+C:\Users\craft\Documents\UNI DOCUMENTS\Interacción Persona-Ordenador I\Lab\IPO1_LAB\FISIPOLAB_\obj\Debug\CustomMessageBox.g.cs
+C:\Users\craft\Documents\UNI DOCUMENTS\Interacción Persona-Ordenador I\Lab\IPO1_LAB\FISIPOLAB_\obj\Debug\CustomMessageBox.baml
+D:\X2DccpJnPO\Y52QL4D0C3\yA5I3PGQcw\yAo2ZyB692\GitHub_Repositories\IPO1_LAB\FISIPOLAB_\obj\Debug\CustomMessageBox.g.cs
+D:\X2DccpJnPO\Y52QL4D0C3\yA5I3PGQcw\yAo2ZyB692\GitHub_Repositories\IPO1_LAB\FISIPOLAB_\obj\Debug\CustomMessageBox.baml
+C:\Users\craft\Documents\UNI DOCUMENTS\Interacción Persona-Ordenador I\Lab\IPO1_LAB\FISIPOLAB_\obj\Debug\VentanaInforme.g.cs
+C:\Users\craft\Documents\UNI DOCUMENTS\Interacción Persona-Ordenador I\Lab\IPO1_LAB\FISIPOLAB_\obj\Debug\VentanaInforme.baml
+D:\X2DccpJnPO\Y52QL4D0C3\yA5I3PGQcw\yAo2ZyB692\GitHub_Repositories\IPO1_LAB\FISIPOLAB_\obj\Debug\VentanaInforme.g.cs
+D:\X2DccpJnPO\Y52QL4D0C3\yA5I3PGQcw\yAo2ZyB692\GitHub_Repositories\IPO1_LAB\FISIPOLAB_\obj\Debug\VentanaInforme.baml
+D:\X2DccpJnPO\Y52QL4D0C3\yA5I3PGQcw\yAo2ZyB692\GitHub_Repositories\IPO1_LAB\FISIPOLAB_\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\craft\Documents\UNI DOCUMENTS\Interacción Persona-Ordenador I\Lab\IPO1_LAB\FISIPOLAB_\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Usuario\Documents\GitHub\IPO1_LAB\FISIPOLAB_\obj\Debug\VentanaInforme.g.cs
+C:\Users\Usuario\Documents\GitHub\IPO1_LAB\FISIPOLAB_\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Usuario\Documents\GitHub\IPO1_LAB\FISIPOLAB_\obj\Debug\VentanaInforme.baml

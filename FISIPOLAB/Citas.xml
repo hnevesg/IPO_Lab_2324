@@ -1,0 +1,8 @@
+<Citas>
+  <Cita fecha_cita="11/01/2024" paciente="jp@gmail.com" hora_cita="05:30" sanitario="Ll@gmail.com" duracion="8" estado="Cancelada" />
+  <Cita fecha_cita="19/01/2024" paciente="jp@gmail.com" hora_cita="04:30" sanitario="Ll@gmail.com" duracion="4" estado="Cancelada" />
+  <Cita fecha_cita="11/01/2024" paciente="jp@gmail.com" hora_cita="04:30" sanitario="Ll@gmail.com" duracion="4" estado="Cancelada" />
+  <Cita fecha_cita="08/01/2024" paciente="mgomez@gmail.com" hora_cita="11:30:00" sanitario="Ll@gmail.com" duracion="20" estado="Cancelada" />
+  <Cita fecha_cita="16/01/2024" paciente="jp@gmail.com" hora_cita="05:30:00" sanitario="Ll@gmail.com" duracion="90" estado="Cancelada" />
+  <Cita fecha_cita="15/01/2024" paciente="jp@gmail.com" hora_cita="05:30:00" sanitario="Ll@gmail.com" duracion="90" estado="Pendiente" />
+</Citas>
