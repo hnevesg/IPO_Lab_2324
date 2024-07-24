@@ -11,4 +11,5 @@ Componentes
 
 > [!NOTE]
 > Existen múltiples usuarios con los que poder ingresar en la aplicación, contenidos todos en el fichero ./FISIPOLAB_/Usuarios.xml. 
+>
 > Uno de ellos es: Usuario: johndoe Contraseña: 987
